@@ -1,0 +1,56 @@
+#include <iostream>
+#include <vector>
+#include <stdio.h>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    int tab[4];
+
+    scanf("%d",&n);
+    for (int i = 0; i < 4; i++)
+        tab[i]=0;
+    while (n--)
+    {
+        int d;
+        scanf("%d",&d);
+        if(d==1)
+            tab[0]++;
+        if(d==2)
+            tab[1]++;
+        if(d==3)
+            tab[2]++;
+        if(d==4)
+            tab[3]++;
+    }
+    if(tab[2]>=tab[0])
+        cout<<tab[3]+tab[2]+(tab[1]/2)+(tab[1]%2)<<endl;
+    else
+    {
+        int r_1 = tab[0] - tab[2];
+        if(tab[1]%2==0)
+        {
+            if(r_1%4==0)
+                cout<<tab[3]+tab[2]+(tab[1]/2)+(r_1/4)<<endl;
+            else
+                cout<<tab[3]+tab[2]+(tab[1]/2)+(r_1/4) + 1<<endl;
+        }
+        else
+        {
+            if(r_1<=2)
+                cout<<tab[3]+tab[2]+(tab[1]/2)+1<<endl;
+            else
+            {
+                int r_1_2 = r_1 - 2;
+                if(r_1_2%4==0)
+                    cout<<tab[3]+tab[2]+(tab[1]/2)+1+(r_1_2/4)<<endl;
+                else
+                    cout<<tab[3]+tab[2]+(tab[1]/2)+(r_1_2/4) + 2<<endl;
+            }
+            
+        }
+
+    }
+}
